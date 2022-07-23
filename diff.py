@@ -17,6 +17,8 @@ def diff(csv_w, filepath, combs):
 if __name__ == "__main__":       
     comp_path = 'input/Linux_compare-2'  # 路径由用户自行修改
     project_name = os.path.split(comp_path)[1].strip('/\\')
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
     with open(os.path.join(out_dir, project_name+'.csv'), 'w') as csv_file:
         csv_w = csv.writer(csv_file)
         csv_w.writerow(['file1', 'file2', 'diff_path', 'label'])
